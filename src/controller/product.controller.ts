@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "http";
-import { readProduct } from "../service/product.service";
+import { insertProduct, readProduct } from "../service/product.service";
 import type { IProduct } from "../type/product.type";
 import { parseBody } from "../utility/parseBody";
 
@@ -35,12 +35,61 @@ export const productController = async (
     );
   } else if (method === "POST" && url === "/products") {
     const body = await parseBody(req);
-    console.log(body, "this is body")
+    // console.log(body, "this is body")
+    const newProduct = {
+      id: Date.now(),
+      ...body,
+    };
+    const products = readProduct();
+    products.push(newProduct);
+    insertProduct(products);
     res.writeHead(200, { "content-type": "application/json" }).end(
       JSON.stringify({
-        message: "This is product route updatedddd",
-        // data: products,
+        message: "product created successfully",
+        data: newProduct,
       }),
     );
+  } else if (method === "PUT" && id !== null) {
+    const body = await parseBody(req);
+
+    const products = readProduct();
+    const index = products.findIndex((p: IProduct) => p.id === id);
+    if (index < 0) {
+      res.writeHead(404, { "content-type": "application/json" }).end(
+        JSON.stringify({
+          message: "Product not found for this id",
+          // data: products,
+        }),
+      );
+    }
+
+    products[index] = {
+      id: products[index]?.id,
+      ...body,
+    };
+
+    insertProduct(products);
+
+    res.writeHead(200, { "content-type": "application/json" }).end(
+      JSON.stringify({
+        message: "product is updated successfully",
+        data: products[index],
+      }),
+    );
+  } else if (method === "DELETE" && id !== null) {
+    const products = readProduct();
+
+    const index = products.findIndex((p: IProduct) => p.id === id);
+    if (index < 0) {
+      res.writeHead(404, { "content-type": "application/json" }).end(
+        JSON.stringify({
+          message: "Product not found for this id",
+          // data: products,
+        }),
+      );
+    }
+
+    products.splice()
+
   }
 };
