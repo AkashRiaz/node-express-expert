@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Signature Truffle Burger",
+    "description": "Premium wagyu beef patty topped with black truffle aioli, caramelized onions, and aged swiss cheese.",
+    "price": 18.50
+  },
+  {
+    "id": 2,
+    "name": "Garden Harvest Salad",
+    "description": "Organic kale and quinoa mix with roasted sweet potatoes, pomegranate seeds, and lemon-tahini dressing.",
+    "price": 14.25
+  },
+  {
+    "id": 3,
+    "name": "Spicy Miso Ramen",
+    "description": "Hand-pulled noodles in a 12-hour pork bone broth with spicy miso paste, soft-boiled egg, and nori.",
+    "price": 16.95
+  },
+  {
+    "id": 4,
+    "name": "Atlantic Salmon Fillet",
+    "description": "Pan-seared wild-caught salmon served over a bed of garlic mashed potatoes and grilled asparagus.",
+    "price": 24.00
+  },
+  {
+    "id": 5,
+    "name": "Artisanal Cheese Plate",
+    "description": "A selection of three local cheeses served with honeycomb, dried figs, and sourdough crackers.",
+    "price": 19.50
+  }
+]
