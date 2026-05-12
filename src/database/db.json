@@ -1,11 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Signature Truffle Burger",
-    "description": "Premium wagyu beef patty topped with black truffle aioli, caramelized onions, and aged swiss cheese.",
-    "price": 18.5
-  },
-  {
     "id": 2,
     "name": "Portable Speaker updated",
     "description": "Waterproof portable Bluetooth speaker",
